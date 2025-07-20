@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>🎮 NLTK Quest - Chapitre 1</title>
+  <style>
+    body { font-family: 'Courier New', monospace; background: #1e1e2f; color: #f1f1f1; padding: 20px; }
+    h1 { color: #00ffcc; }
+    .section { margin-bottom: 25px; }
+    button { padding: 10px; margin: 5px; background: #00ffcc; color: #1e1e2f; border: none; cursor: pointer; }
+    .hidden { display: none; }
+    input { padding: 5px; }
+  </style>
+</head>
+<body>
+
+<h1>🎮 Bienvenue dans NLTK Quest – Chapitre 1</h1>
+<p>Mission : Maîtriser les bases du traitement du langage naturel avec Python.</p>
+
+<div class="section">
+  <h2>🔤 Énigme 1 : Le mot le plus fréquent</h2>
+  <p>Dans le roman *Moby Dick*, quel est selon toi le mot le plus fréquent ?</p>
+  <input type="text" id="freqInput" placeholder="Tape ta réponse ici...">
+  <button onclick="checkFreq()">Vérifier</button>
+  <p id="freqResult"></p>
+</div>
+
+<div class="section">
+  <h2>🔎 Énigme 2 : Que fait ce code Python ?</h2>
+  <pre>
+from nltk import FreqDist
+text = ['the', 'sea', 'the', 'whale', 'the', 'ship']
+FreqDist(text).most_common(1)
+  </pre>
+  <p>À quoi sert ce code ?</p>
+  <button onclick="revealAnswer('code1')">Voir la réponse</button>
+  <p id="code1" class="hidden">👉 Il affiche le mot le plus fréquent dans la liste : <code>('the', 3)</code>.</p>
+</div>
+
+<div class="section">
+  <h2>💡 Mini-quiz</h2>
+  <p>Lequel de ces mots est un *stopword* en anglais ?</p>
+  <button onclick="showFeedback('wrong')">a) whale</button>
+  <button onclick="showFeedback('correct')">b) the</button>
+  <button onclick="showFeedback('wrong')">c) captain</button>
+  <p id="feedback"></p>
+</div>
+
+<script>
+function checkFreq() {
+  const answer = document.getElementById('freqInput').value.trim().toLowerCase();
+  const result = document.getElementById('freqResult');
+  if (answer === 'the') {
+    result.innerText = "✅ Bravo ! C’est bien ‘the’ — un stopword très fréquent.";
+  } else {
+    result.innerText = "❌ Hmm… essaie encore. Astuce : pense aux articles.";
+  }
+}
+
+function revealAnswer(id) {
+  document.getElementById(id).classList.remove('hidden');
+}
+
+function showFeedback(choice) {
+  const msg = {
+    correct: "✅ Exact ! ‘the’ est un mot vide (*stopword*) en anglais.",
+    wrong: "❌ Non. ‘whale’ et ‘captain’ sont significatifs, donc pas des stopwords."
+  };
+  document.getElementById('feedback').innerText = msg[choice];
+}
+</script>
+
+</body>
+</html>
