@@ -1,74 +1,63 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>🎮 NLTK Quest - Chapitre 1</title>
+  <title>Chapitre 1 – NLTK Quest (Réflexion)</title>
   <style>
-    body { font-family: 'Courier New', monospace; background: #1e1e2f; color: #f1f1f1; padding: 20px; }
-    h1 { color: #00ffcc; }
-    .section { margin-bottom: 25px; }
-    button { padding: 10px; margin: 5px; background: #00ffcc; color: #1e1e2f; border: none; cursor: pointer; }
-    .hidden { display: none; }
-    input { padding: 5px; }
+    body { font-family: Arial, sans-serif; background-color: #1e1e2f; color: #f0f0f0; padding: 20px; }
+    h1, h2 { color: #00ffd9; }
+    .section { background-color: #29293d; padding: 15px; margin-bottom: 15px; border-radius: 10px; }
+    .code { background-color: #111; padding: 10px; border-left: 4px solid #00ffd9; font-family: monospace; color: #fff; white-space: pre-wrap; }
+    a { color: #00ffd9; }
   </style>
 </head>
 <body>
 
-<h1>🎮 Bienvenue dans NLTK Quest – Chapitre 1</h1>
-<p>Mission : Maîtriser les bases du traitement du langage naturel avec Python.</p>
+<h1>📘 NLTK Quest – Chapitre 1 : Réflexion Active</h1>
+<p>Explore en profondeur comment un ordinateur lit un texte. Tu trouveras ici des questions conceptuelles, des hypothèses à formuler, et des pseudo-codes à imaginer. Réfléchis avant de coder 💡</p>
 
 <div class="section">
-  <h2>🔤 Énigme 1 : Le mot le plus fréquent</h2>
-  <p>Dans le roman *Moby Dick*, quel est selon toi le mot le plus fréquent ?</p>
-  <input type="text" id="freqInput" placeholder="Tape ta réponse ici...">
-  <button onclick="checkFreq()">Vérifier</button>
-  <p id="freqResult"></p>
+  <h2>🧠 Q1. Quel est le mot le plus fréquent ?</h2>
+  <p>🌱 Hypothèse : Certains mots apparaissent si souvent qu’on ne les voit plus.<br>
+  🤔 Est-ce que ces mots sont importants pour comprendre le texte ?</p>
+  <div class="code">
+# Pseudo-code :
+corpus = charger_moby_dick()
+tokens = tokeniser(corpus)
+frequences = calcule_frequences(tokens)
+top_mots = top_frequences(frequences, n=10)
+afficher(top_mots)
+  </div>
 </div>
 
 <div class="section">
-  <h2>🔎 Énigme 2 : Que fait ce code Python ?</h2>
-  <pre>
-from nltk import FreqDist
-text = ['the', 'sea', 'the', 'whale', 'the', 'ship']
-FreqDist(text).most_common(1)
-  </pre>
-  <p>À quoi sert ce code ?</p>
-  <button onclick="revealAnswer('code1')">Voir la réponse</button>
-  <p id="code1" class="hidden">👉 Il affiche le mot le plus fréquent dans la liste : <code>('the', 3)</code>.</p>
+  <h2>🚫 Q2. Que se passe-t-il si on enlève les stopwords ?</h2>
+  <p>🧩 Compare les mots fréquents avec et sans stopwords.<br>
+  Est-ce que ton regard sur le texte change ? Que reste-t-il du sens ?</p>
+  <div class="code">
+# Pseudo-code :
+stopwords = liste_stopwords("anglais")
+tokens_filtres = [t for t in tokens if t.lower() not in stopwords]
+frequences_nettoyees = calcule_frequences(tokens_filtres)
+afficher(top_frequences(frequences_nettoyees, n=10))
+  </div>
 </div>
 
 <div class="section">
-  <h2>💡 Mini-quiz</h2>
-  <p>Lequel de ces mots est un *stopword* en anglais ?</p>
-  <button onclick="showFeedback('wrong')">a) whale</button>
-  <button onclick="showFeedback('correct')">b) the</button>
-  <button onclick="showFeedback('wrong')">c) captain</button>
-  <p id="feedback"></p>
+  <h2>💬 Q3. Qu’est-ce que ce vocabulaire nous dit sur le style du texte ?</h2>
+  <p>✍️ Est-ce un texte descriptif, narratif, poétique ?<br>
+  Quel est le rôle des répétitions dans l’effet stylistique ?</p>
 </div>
 
-<script>
-function checkFreq() {
-  const answer = document.getElementById('freqInput').value.trim().toLowerCase();
-  const result = document.getElementById('freqResult');
-  if (answer === 'the') {
-    result.innerText = "✅ Bravo ! C’est bien ‘the’ — un stopword très fréquent.";
-  } else {
-    result.innerText = "❌ Hmm… essaie encore. Astuce : pense aux articles.";
-  }
-}
-
-function revealAnswer(id) {
-  document.getElementById(id).classList.remove('hidden');
-}
-
-function showFeedback(choice) {
-  const msg = {
-    correct: "✅ Exact ! ‘the’ est un mot vide (*stopword*) en anglais.",
-    wrong: "❌ Non. ‘whale’ et ‘captain’ sont significatifs, donc pas des stopwords."
-  };
-  document.getElementById('feedback').innerText = msg[choice];
-}
-</script>
+<div class="section">
+  <h2>🔗 Notebook Colab associé</h2>
+  <p>
+    📥 <a href="https://colab.research.google.com/github/MarcelALng/nltk-quest_Marcel/blob/master/chapitre1_reflexion.ipynb" target="_blank">
+    Ouvrir le notebook Python interactif
+    </a>
+  </p>
+</div>
 
 </body>
 </html>
