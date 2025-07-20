@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>🧠 NLTK Quest – Chapitre 1</title>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; background-color: #1e1e2f; color: #f0f0f0; margin: 0; padding: 20px; }
+    h1, h2 { color: #00ffd9; }
+    h3 { color: #ffd700; }
+    .day { background-color: #29293d; padding: 15px; margin-bottom: 15px; border-radius: 10px; }
+    .question { margin-top: 10px; }
+    .code { background-color: #111; padding: 10px; border-left: 4px solid #00ffd9; font-family: monospace; color: #fff; }
+    a { color: #00ffd9; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<h1>📘 NLTK Quest – Chapitre 1 : Language Processing and Python</h1>
+<p>Bienvenue dans ta quête interactive pour devenir un Maître du Traitement Automatique du Langage.<br>
+Chaque jour, affronte une énigme, résous-la avec logique, et progresse dans l’art du Python et de la linguistique 🧙‍♂️🐍</p>
+
+<hr>
+
+<div class="day">
+  <h2>Jour 1 – Le mot invisible</h2>
+  <p><strong>Motivation :</strong> Chaque grand corpus cache un trésor… à toi de le découvrir.</p>
+  <div class="question">
+    🔍 Quel est le mot le plus fréquent dans *Moby Dick* ? Pourquoi ?
+    <br><br>
+    <em>Indice :</em> ce mot est si commun qu’on l’oublie parfois. Que signifie “stopword” ?
+    <div class="code"># Pseudo-code :
+corpus = charger_moby_dick()
+mots = tokeniser(corpus)
+frequences = frequences_mots(mots)
+afficher_top_1(frequences)</div>
+  </div>
+</div>
+
+<div class="day">
+  <h2>Jour 2 – L’écho caché</h2>
+  <p><strong>Motivation :</strong> Entendre un mot, c’est comprendre son contexte.</p>
+  <div class="question">
+    📖 Explore toutes les phrases contenant “whale” dans le corpus.
+    <br>
+    Pourquoi ce mot revient-il dans certains contextes émotionnels ?
+    <div class="code"># Pseudo-code :
+text = charger_corpus()
+concordances = chercher_concordance(text, "whale")
+afficher(concordances)</div>
+  </div>
+</div>
+
+<div class="day">
+  <h2>Jour 3 – La marée des mots</h2>
+  <p><strong>Motivation :</strong> Voir l’emplacement d’un mot, c’est lire la topographie d’un roman.</p>
+  <div class="question">
+    🌊 Affiche la dispersion des mots : “whale”, “ship”, “sea”.  
+    Qu’observes-tu ? Que révèle cette dispersion sur le rôle du mot ?
+    <div class="code"># Pseudo-code :
+afficher_dispersion(corpus, ["whale", "ship", "sea"])</div>
+  </div>
+</div>
+
+<div class="day">
+  <h2>Jour 4 – Vocabularius Maximus</h2>
+  <p><strong>Motivation :</strong> Chaque langue est un équilibre entre répétition et diversité.</p>
+  <div class="question">
+    📊 Quelle est la taille du vocabulaire ? Et le ratio types/tokens ?
+    À quoi sert ce ratio ? Comment varie-t-il entre un poème, un discours politique ou une recette ?
+    <div class="code"># Pseudo-code :
+tokens = tokeniser(corpus)
+types = set(tokens)
+print(len(tokens), len(types), len(types)/len(tokens))</div>
+  </div>
+</div>
+
+<div class="day">
+  <h2>Jour 5 – Le filtre du sage</h2>
+  <p><strong>Motivation :</strong> Savoir quoi ignorer, c’est aussi comprendre.</p>
+  <div class="question">
+    🚫 Supprime les stopwords du corpus.  
+    Que reste-t-il ? Est-ce que le texte devient plus lisible ou plus difficile à interpréter ?
+    <div class="code"># Pseudo-code :
+stopwords = charger_stopwords("en")
+filtré = [mot for mot in mots if mot not in stopwords]
+analyser(filtré)</div>
+  </div>
+</div>
+
+<div class="day">
+  <h2>Jour 6 – La transformation du sens</h2>
+  <p><strong>Motivation :</strong> Les mots changent, mais leur essence reste.</p>
+  <div class="question">
+    🔁 Applique le stemming et la lemmatisation. Que remarques-tu ?  
+    Quelle méthode choisirais-tu pour l’analyse de tweets ?
+    <div class="code"># Pseudo-code :
+racines = stemmer(mots)
+lemmes = lemmatiseur(mots)
+comparer(racines, lemmes)</div>
+  </div>
+</div>
+
+<div class="day">
+  <h2>Jour 7 – Le poète artificiel</h2>
+  <p><strong>Motivation :</strong> Créer, c’est le sommet de l’apprentissage.</p>
+  <div class="question">
+    🎲 Génère du texte aléatoire à partir du bigramme d’un corpus.
+    Le résultat est-il cohérent ? Où cela échoue-t-il ?
+    <div class="code"># Pseudo-code :
+modele = bigramme(corpus)
+texte = generer_texte(modele, depart="Call")
+afficher(texte)</div>
+  </div>
+</div>
+
+<hr>
+
+<h3>🧪 Besoin de tester tes hypothèses en Python ?</h3>
+<p>🔗 <a href="https://colab.research.google.com/github/MarcelALng/nltk-quest_Marcel/blob/master/chapitre1.ipynb" target="_blank">Ouvrir le notebook Colab associé</a></p>
+
+</body>
+</html>
