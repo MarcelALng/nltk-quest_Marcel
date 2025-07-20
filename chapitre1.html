@@ -3,7 +3,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Chapitre 1 – NLTK Quest (Réflexion)</title>
+  <title>Chapitre 1 – NLTK Quest (Version longue et réflexive)</title>
   <style>
     body { font-family: Arial, sans-serif; background-color: #1e1e2f; color: #f0f0f0; padding: 20px; }
     h1, h2 { color: #00ffd9; }
@@ -14,47 +14,51 @@
 </head>
 <body>
 
-<h1>📘 NLTK Quest – Chapitre 1 : Réflexion Active</h1>
-<p>Explore en profondeur comment un ordinateur lit un texte. Tu trouveras ici des questions conceptuelles, des hypothèses à formuler, et des pseudo-codes à imaginer. Réfléchis avant de coder 💡</p>
+<h1>📘 NLTK Quest – Chapitre 1 : Version Longue & Réflexive</h1>
+<p>Bienvenue dans une plongée approfondie dans les fondations du TAL avec NLTK. Pose-toi les bonnes questions, formule des hypothèses, et teste-les dans le notebook associé 🧠</p>
 
 <div class="section">
-  <h2>🧠 Q1. Quel est le mot le plus fréquent ?</h2>
-  <p>🌱 Hypothèse : Certains mots apparaissent si souvent qu’on ne les voit plus.<br>
-  🤔 Est-ce que ces mots sont importants pour comprendre le texte ?</p>
-  <div class="code">
-# Pseudo-code :
-corpus = charger_moby_dick()
+  <h2>🧠 Q1 – Quel est le mot le plus fréquent ?</h2>
+  <p>🌱 Certains mots apparaissent si souvent qu’on ne les voit plus. Mais sont-ils importants pour comprendre le texte ?</p>
+  <div class="code">corpus = charger_moby_dick()
 tokens = tokeniser(corpus)
 frequences = calcule_frequences(tokens)
-top_mots = top_frequences(frequences, n=10)
-afficher(top_mots)
-  </div>
+top_mots = top_frequences(frequences, n=10)</div>
 </div>
 
 <div class="section">
-  <h2>🚫 Q2. Que se passe-t-il si on enlève les stopwords ?</h2>
-  <p>🧩 Compare les mots fréquents avec et sans stopwords.<br>
-  Est-ce que ton regard sur le texte change ? Que reste-t-il du sens ?</p>
-  <div class="code">
-# Pseudo-code :
-stopwords = liste_stopwords("anglais")
+  <h2>🚫 Q2 – Et sans les stopwords ?</h2>
+  <p>📌 Que révèle le texte sans ses mots-outils ? Est-ce que ton regard change ?</p>
+  <div class="code">stopwords = liste_stopwords("anglais")
 tokens_filtres = [t for t in tokens if t.lower() not in stopwords]
-frequences_nettoyees = calcule_frequences(tokens_filtres)
-afficher(top_frequences(frequences_nettoyees, n=10))
-  </div>
+frequences_nettoyees = calcule_frequences(tokens_filtres)</div>
 </div>
 
 <div class="section">
-  <h2>💬 Q3. Qu’est-ce que ce vocabulaire nous dit sur le style du texte ?</h2>
-  <p>✍️ Est-ce un texte descriptif, narratif, poétique ?<br>
-  Quel est le rôle des répétitions dans l’effet stylistique ?</p>
+  <h2>📚 Q3 – Style du texte</h2>
+  <p>📘 Le texte est-il descriptif, narratif, poétique ? Que révèlent les mots fréquents du style ?</p>
+</div>
+
+<div class="section">
+  <h2>📏 Q4 – Types vs Tokens</h2>
+  <p>🧠 Quelle est la richesse lexicale du texte ? Compare tokens et types pour mesurer sa diversité.</p>
+</div>
+
+<div class="section">
+  <h2>🗺️ Q5 – Dispersion lexicale</h2>
+  <p>📊 Où apparaissent les mots clés comme “whale”, “Ahab”, “ship” ? Leur position est-elle révélatrice ?</p>
+</div>
+
+<div class="section">
+  <h2>🧪 Q6 – Génération naïve</h2>
+  <p>🎲 Utilise les bigrammes pour générer du texte. Est-ce grammatical ? poétique ? étrange ?</p>
 </div>
 
 <div class="section">
   <h2>🔗 Notebook Colab associé</h2>
   <p>
-    📥 <a href="https://colab.research.google.com/github/MarcelALng/nltk-quest_Marcel/blob/master/chapitre1_reflexion.ipynb" target="_blank">
-    Ouvrir le notebook Python interactif
+    📥 <a href="https://colab.research.google.com/github/MarcelALng/nltk-quest_Marcel/blob/master/chapitre1_long_reflexion.ipynb" target="_blank">
+    Ouvrir le notebook complet dans Google Colab
     </a>
   </p>
 </div>
